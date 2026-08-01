@@ -1,0 +1,70 @@
+name: Overflow
+options:
+  bundleIdPrefix: com.nic
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+targets:
+  Overflow:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+    info:
+      path: Sources/Info.plist
+      properties:
+        CFBundleName: Overflow
+        CFBundleDisplayName: Overflow
+        CFBundleShortVersionString: "0.3.0"
+        CFBundleVersion: "3"
+        CFBundleIconFile: Overflow
+        LSUIElement: true
+        LSMinimumSystemVersion: "14.0"
+        LSApplicationCategoryType: public.app-category.utilities
+        NSHumanReadableCopyright: "Copyright © 2026 Nicholas Glazkov. MIT licensed."
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.nic.overflow
+        MARKETING_VERSION: "0.3.0"
+        CURRENT_PROJECT_VERSION: "3"
+        SWIFT_VERSION: "5.0"
+        # Ad-hoc by default so the project builds for anyone who clones it.
+        #
+        # Ad-hoc signatures rehash on every build, and Accessibility grants are bound to the
+        # signature — so macOS revokes the grant after each rebuild. If you are iterating and
+        # want the grant to stick, build with your own identity:
+        #
+        #   make install SIGN_ID="Apple Development: Your Name (XXXXXXXXXX)" TEAM_ID=YYYYYYYYYY
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "-"
+        ENABLE_HARDENED_RUNTIME: NO
+        COMBINE_HIDPI_IMAGES: YES
+
+  OverflowTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Tests
+      # Compiled directly rather than via @testable import, so the tests are pure logic tests
+      # with no host application and no launched UI. Keeps CI fast and headless.
+      - path: Sources/SpacerClamp.swift
+      - path: Sources/StatusItemScanner.swift
+    settings:
+      base:
+        SWIFT_VERSION: "5.0"
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.nic.overflow.tests
+        CODE_SIGN_IDENTITY: "-"
+
+schemes:
+  Overflow:
+    build:
+      targets:
+        Overflow: all
+        OverflowTests: [test]
+    test:
+      targets:
+        - OverflowTests
+    run:
+      config: Debug

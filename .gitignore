@@ -1,0 +1,5 @@
+build/
+*.xcodeproj/
+Overflow.zip
+Overflow.iconset/
+.DS_Store
