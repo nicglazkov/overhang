@@ -28,9 +28,7 @@ struct SettingsView: View {
     weak var controller: BarController?
 
     @State private var launchAtLogin = LoginItem.isEnabled
-    @State private var hiddenWidth: Double = 0
     @State private var trusted = Activator.isTrusted
-    @State private var hiddenCount = 0
 
     private var version: String {
         let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
@@ -46,25 +44,6 @@ struct SettingsView: View {
                     .onChange(of: launchAtLogin) { _, newValue in
                         if LoginItem.setEnabled(newValue) == nil { launchAtLogin = LoginItem.isEnabled }
                     }
-
-                VStack(alignment: .leading, spacing: 6) {
-                    HStack {
-                        Text("Hide from the bar")
-                        Spacer()
-                        Text("\(Int(hiddenWidth))pt")
-                            .foregroundStyle(.secondary)
-                            .monospacedDigit()
-                    }
-                    Slider(value: $hiddenWidth, in: 0...400, step: 10) { editing in
-                        if !editing { apply() }
-                    }
-                    Text("Pushes items off the left edge to make room. \(hiddenCount) item\(hiddenCount == 1 ? "" : "s") currently hidden.")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        // Without this the caption truncates instead of wrapping inside the
-                        // window's fixed width.
-                        .fixedSize(horizontal: false, vertical: true)
-                }
 
                 VStack(alignment: .leading, spacing: 6) {
                     HStack {
@@ -126,14 +105,5 @@ struct SettingsView: View {
     private func refresh() {
         launchAtLogin = LoginItem.isEnabled
         trusted = Activator.isTrusted
-        hiddenWidth = Double(controller?.currentSpacerLength ?? 0)
-        hiddenCount = StatusItemScanner.casualties(in: StatusItemScanner.scan()).count
-    }
-
-    private func apply() {
-        controller?.applyLength(CGFloat(hiddenWidth))
-        // The controller clamps, so read back rather than trusting what the slider asked for.
-        hiddenWidth = Double(controller?.currentSpacerLength ?? 0)
-        hiddenCount = StatusItemScanner.casualties(in: StatusItemScanner.scan()).count
     }
 }

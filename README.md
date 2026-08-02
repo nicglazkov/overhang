@@ -35,7 +35,7 @@ everything macOS dropped. Click an entry and that item's own menu opens.
 
 <div align="center">
 <img src="site/img/menu-card.png" width="258" alt="Overhang's menu listing the status items macOS stopped drawing, each with its app icon">&nbsp;&nbsp;
-<img src="site/img/settings-card.png" width="378" alt="Overhang's settings window: launch at login, hide amount, click-through status">
+<img src="site/img/settings-card.png" width="378" alt="Overhang's settings window: launch at login and click-through">
 </div>
 
 <br>
@@ -78,7 +78,7 @@ make install
 
 ## How it works
 
-No Screen Recording, no private API, no accessibility requirement. Three mechanisms, each
+No Screen Recording, no private API, no accessibility requirement. Two mechanisms, each
 verified by measurement before being relied on:
 
 <details>
@@ -100,25 +100,6 @@ window list with valid geometry, they are simply never rasterized.
 Writing `NSStatusItem Preferred Position` before creating the item lands the chevron at the
 rightmost third party slot, beside Control Center. The value is measured from the right edge,
 so a smaller number sorts further right. System items cannot be displaced by anything.
-
-</details>
-
-<details>
-<summary><b>Hiding is a side effect of geometry</b></summary>
-<br>
-
-An empty status item whose length grows shifts the whole third party run leftward, and the
-window server culls whatever crosses the notch boundary. Instant and reversible, because
-nothing is intercepted. The shift applies to Overhang's own chevron too, so the length is
-clamped against a live reading of the chevron's position; an unclamped value would push the
-app's only control off screen:
-
-| spacer length | items on screen | chevron |
-|---|---|---|
-| 20 | 16 | visible |
-| 250 | 11 | visible |
-| 400 | 7 | visible |
-| 10000 | 2 | **lost** |
 
 </details>
 
@@ -155,8 +136,6 @@ Stated plainly, because they are real.
 - **Click-through coverage is partial.** Items backed by a standard menu open directly. Items
   that consume the mouse event themselves fall back to reveal and click. Architectural, not
   positional.
-- **Hiding leaves a gap.** Displaced space has to go somewhere. Avoiding it entirely is what
-  forces other tools into requiring Screen Recording.
 - **The chevron costs a slot** on a completely full bar. The evicted icon appears in the menu,
   still reachable.
 

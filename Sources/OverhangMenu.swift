@@ -37,12 +37,6 @@ final class OverhangMenu: NSObject, NSMenuDelegate {
         }
 
         menu.addItem(.separator())
-        addDisabled("Hiding \(Int(controller?.currentSpacerLength ?? 0))pt")
-        add("Hide more", #selector(hideMore))
-        add("Hide less", #selector(hideLess))
-        add("Show everything", #selector(reset))
-
-        menu.addItem(.separator())
         // Only surface this when it is actionable; when it is on it just adds noise, and the
         // state is visible in Settings anyway.
         if !Activator.isTrusted {
@@ -81,8 +75,5 @@ final class OverhangMenu: NSObject, NSMenuDelegate {
 
     @objc private func enableClickThrough() { Activator.requestTrust() }
     @objc private func openSettings() { controller?.showSettings() }
-    @objc private func hideMore() { controller?.hideMore() }
-    @objc private func hideLess() { controller?.hideLess() }
-    @objc private func reset() { controller?.reset() }
     @objc private func quit() { NSApp.terminate(nil) }
 }

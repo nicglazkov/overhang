@@ -16,8 +16,8 @@ targets:
       properties:
         CFBundleName: Overhang
         CFBundleDisplayName: Overhang
-        CFBundleShortVersionString: "0.4.1"
-        CFBundleVersion: "5"
+        CFBundleShortVersionString: "0.5.0"
+        CFBundleVersion: "6"
         CFBundleIconFile: Overhang
         LSUIElement: true
         LSMinimumSystemVersion: "14.0"
@@ -26,8 +26,8 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.nic.overhang
-        MARKETING_VERSION: "0.4.1"
-        CURRENT_PROJECT_VERSION: "5"
+        MARKETING_VERSION: "0.5.0"
+        CURRENT_PROJECT_VERSION: "6"
         SWIFT_VERSION: "5.0"
         # Ad-hoc by default so the project builds for anyone who clones it.
         #
@@ -52,7 +52,6 @@ targets:
       - path: Tests
       # Compiled directly rather than via @testable import, so the tests are pure logic tests
       # with no host application and no launched UI. Keeps CI fast and headless.
-      - path: Sources/SpacerClamp.swift
       - path: Sources/StatusItemScanner.swift
     settings:
       base:

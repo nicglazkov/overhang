@@ -180,3 +180,15 @@ so its path is stable too.
   needed for the case that matters (rejecting a length that would eat the chevron).
 - Manual: launch, confirm the culled item appears in the menu, confirm `Hide more`/`Hide less` are
   reversible, confirm the chevron never disappears.
+
+## v0.5, the hide feature removed (2026-08-02)
+
+The spacer and everything built on it, Hide more and Hide less, the settings slider, and the
+SpacerClamp, are gone. The feature was a holdover from when this was going to be a menu bar
+manager; the shipped product is a recovery tool, and growing the spacer only ever created more
+casualties, never fewer. It also left a permanent artifact: even at length 1, NSStatusItem
+reserves about 17pt, so an idle spacer sat in the bar as a blank clickable item.
+
+The app now owns exactly one status item, the chevron. The reveal fallback surrenders the
+chevron's own width for eight seconds, which frees one slot; items deeper in the hidden run
+are reachable through the menu and click-through as before.
