@@ -104,8 +104,8 @@ so a smaller number sorts further right. System items cannot be displaced by any
 </details>
 
 Accessibility is optional and enables exactly one thing: clicking an entry presses the real
-status item so its own menu opens. Declined, Overhang reveals the item in the bar for eight
-seconds so you can click it yourself. The relevant code is one short function,
+status item so its own menu opens. Declined, Overhang tucks its own icon away for eight seconds
+so the item nearest the edge can return for you to click. The relevant code is one short function,
 [`Sources/Activator.swift`](Sources/Activator.swift).
 
 <br>
