@@ -19,10 +19,6 @@
 [**Privacy**](https://nicglazkov.github.io/overhang/privacy.html) &nbsp;|&nbsp;
 [**Security**](https://nicglazkov.github.io/overhang/security.html)
 
-<br>
-
-<img src="site/img/menu-card.png" width="330" alt="Overhang's menu listing the status items macOS stopped drawing, each with its app icon">
-
 </div>
 
 <br>
@@ -34,6 +30,13 @@ than you would expect.
 
 Overhang puts one chevron at the rightmost slot a third party item can hold and lists
 everything macOS dropped. Click an entry and that item's own menu opens.
+
+<br>
+
+<div align="center">
+<img src="site/img/menu-card.png" width="258" alt="Overhang's menu listing the status items macOS stopped drawing, each with its app icon">&nbsp;&nbsp;
+<img src="site/img/settings-card.png" width="378" alt="Overhang's settings window: launch at login, hide amount, click-through status">
+</div>
 
 <br>
 
@@ -70,17 +73,6 @@ git clone https://github.com/nicglazkov/overhang.git
 cd overhang
 make install
 ```
-
-<br>
-
-## Settings
-
-<div align="center">
-<img src="site/img/settings.png" width="440" alt="Overhang's settings window: launch at login, hide amount, click-through status">
-</div>
-
-Three settings, no more: launch at login, how much of the bar to hide, and optional
-click-through. Everything else stays out of the way.
 
 <br>
 
