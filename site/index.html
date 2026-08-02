@@ -140,24 +140,25 @@
           </li>
         </ol>
       </div>
-      <div class="track">
-        <h3>Build from source</h3>
-        <p class="hint">Needs Xcode 15 or later and XcodeGen.</p>
-        <pre>brew install xcodegen
+      <div class="stack">
+        <div class="track">
+          <h3>Homebrew</h3>
+          <p class="hint">One command, and brew upgrade keeps it current.</p>
+          <pre>brew install --cask nicglazkov/tap/overhang</pre>
+        </div>
+        <div class="track">
+          <h3>Build from source</h3>
+          <p class="hint">Needs Xcode 15 or later and XcodeGen.</p>
+          <pre>brew install xcodegen
 git clone https://github.com/nicglazkov/overhang.git
 cd overhang
 make install</pre>
-        <p class="hint" style="margin-top:16px">Builds, signs ad hoc, and copies the app into
-        Applications. Run <code>make test</code> to check the suite first.</p>
-        <div class="instep-actions">
-          <a class="instep-link" href="https://github.com/nicglazkov/overhang">View the source</a>
-          <a class="instep-link" href="requirements.html">Build requirements</a>
+          <div class="instep-actions">
+            <a class="instep-link" href="https://github.com/nicglazkov/overhang">View the source</a>
+            <a class="instep-link" href="requirements.html">Build requirements</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="brewline">
-      <span>Prefer Homebrew?</span>
-      <code>brew install --cask nicglazkov/tap/overhang</code>
     </div>
   </section>
 

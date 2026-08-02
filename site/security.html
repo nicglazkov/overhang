@@ -73,14 +73,14 @@
     <h3>Signature</h3>
     <p>Release builds are signed with an Apple Developer ID certificate, team M7D6YHVDNK. You can
     verify a download before running it:</p>
-    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">codesign -dv --verbose=2 /Applications/Overhang.app</pre>
+    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">codesign -dv --verbose=2 /Applications/Overhang.app</pre>
     <h3>Notarization</h3>
     <p>Release builds are notarized by Apple and the ticket is stapled to the disk image and to
     the app, so the app launches normally and validates even with no network connection. You
     should never need to disable Gatekeeper or right click to open it. If a build asks you to,
     it did not come from this project.</p>
     <p>You can confirm the ticket on your own copy:</p>
-    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">spctl -a -vvv -t install /Applications/Overhang.app
+    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">spctl -a -vvv -t install /Applications/Overhang.app
 xcrun stapler validate /Applications/Overhang.app</pre>
     <p>The first command should report <code>accepted</code> and
     <code>source=Notarized Developer ID</code>.</p>
@@ -125,7 +125,7 @@ xcrun stapler validate /Applications/Overhang.app</pre>
     <h2>Verifying a build yourself</h2>
     <p>Because the source is public and there are no dependencies, you can build the app from
     source and compare behaviour rather than trusting the published binary.</p>
-    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">git clone https://github.com/nicglazkov/overhang.git
+    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">git clone https://github.com/nicglazkov/overhang.git
 cd overhang
 make test
 make install</pre>

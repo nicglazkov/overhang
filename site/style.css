@@ -58,6 +58,7 @@ a:hover{text-decoration:underline}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 summary::-webkit-details-marker{display:none}
 summary{cursor:pointer;list-style:none}
+section[id]{scroll-margin-top:76px}
 .shell{max-width:980px;margin:0 auto;padding-left:24px;padding-right:24px}
 
 /* nav */
@@ -210,7 +211,7 @@ summary{cursor:pointer;list-style:none}
 .inD strong{display:block;font-weight:600;font-size:14.5px}
 .inD span{color:var(--muted);font-size:13.5px}
 .inD pre{background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;
-  padding:14px 16px;margin:0;overflow-x:auto;
+  padding:14px 16px;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.8;color:var(--text)}
 
 /* option E: two column grid, compact */
@@ -293,7 +294,7 @@ summary{cursor:pointer;list-style:none}
 .d1 strong,.d2 strong,.d3 strong,.d4 strong,.d5 strong{display:block;font-weight:600;font-size:14.5px}
 .d1 span,.d2 span,.d3 span,.d4 span,.d5 span{color:var(--muted);font-size:13.5px}
 .d1 pre,.d2 pre,.d3 pre,.d4 pre,.d5 pre{background:var(--soft);border:1px solid var(--soft-line);
-  border-radius:10px;padding:14px 16px;margin:0;overflow-x:auto;
+  border-radius:10px;padding:14px 16px;margin:0;white-space:pre-wrap;overflow-wrap:anywhere;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.8;color:var(--text)}
 
 /* D1, two equal cards */
@@ -395,9 +396,5 @@ footer a{color:var(--muted)}
   .panel{padding:24px}
 }
 
-/* A third install route that needs one line rather than a whole card. */
-.brewline{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:22px;
-  padding-top:22px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted)}
-.brewline code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;
-  background:var(--soft);border:1px solid var(--soft-line);border-radius:8px;
-  padding:8px 12px;color:var(--text);overflow-x:auto;max-width:100%}
+/* The right column stacks the two developer routes beside the recommended download. */
+.d2 .stack{display:flex;flex-direction:column;gap:22px;min-width:0}
