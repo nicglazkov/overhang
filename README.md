@@ -34,8 +34,8 @@ everything macOS dropped. Click an entry and that item's own menu opens.
 <br>
 
 <div align="center">
-<img src="site/img/menu-card.png" width="258" alt="Overhang's menu listing the status items macOS stopped drawing, each with its app icon">&nbsp;&nbsp;
-<img src="site/img/settings-card.png" width="378" alt="Overhang's settings window: launch at login and click-through">
+<img src="site/img/menu-card.png" width="285" alt="Overhang's menu listing the status items macOS stopped drawing, each with its app icon">&nbsp;&nbsp;
+<img src="site/img/settings-card.png" width="390" alt="Overhang's settings window: launch at login and click-through">
 </div>
 
 <br>
