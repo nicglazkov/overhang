@@ -35,6 +35,9 @@ final class BarController {
         spacer.autosaveName = Self.spacerAutosave
         spacer.button?.title = ""
         spacer.button?.image = nil
+        // The spacer is pure geometry. Left enabled it highlights on click and does
+        // nothing, which reads as a broken item.
+        spacer.button?.isEnabled = false
 
         chevron = bar.statusItem(withLength: NSStatusItem.squareLength)
         chevron.autosaveName = Self.chevronAutosave
@@ -73,25 +76,39 @@ final class BarController {
     // MARK: - Mutation
 
     func applyLength(_ proposed: CGFloat) {
-        let current = spacer.length
+        let current = currentSpacerLength
         guard let x = chevronMinX else {
             // Chevron not measurable yet; refuse to grow rather than risk losing it.
-            spacer.length = max(1, min(proposed, current))
+            setSpacer(min(proposed, current))
             return
         }
         let safe = SpacerClamp.clamp(proposed,
                                      chevronMinX: x,
                                      notchMinX: notchMinX,
                                      currentLength: current)
-        spacer.length = max(1, safe)
-        spacerLength = safe
+        setSpacer(safe)
+        spacerLength = max(0, safe)
     }
 
-    func hideMore() { applyLength(spacer.length + Self.step) }
-    func hideLess() { applyLength(spacer.length - Self.step) }
+    /// When nothing is being hidden the spacer leaves the bar entirely. Even at length 1,
+    /// NSStatusItem reserves about 17pt of padding, which lingers as a phantom slot between
+    /// the neighbouring icons.
+    private func setSpacer(_ length: CGFloat) {
+        if length > 1 {
+            spacer.isVisible = true
+            spacer.length = length
+        } else {
+            spacer.length = 1
+            spacer.isVisible = false
+        }
+    }
+
+    func hideMore() { applyLength(currentSpacerLength + Self.step) }
+    func hideLess() { applyLength(currentSpacerLength - Self.step) }
     func reset() { applyLength(0) }
 
-    var currentSpacerLength: CGFloat { spacer.length }
+    /// The logical hide amount: zero when the spacer is out of the bar.
+    var currentSpacerLength: CGFloat { spacer.isVisible ? spacer.length : 0 }
 
     // MARK: - Temporary reveal (fallback when AXPress does not work)
 
@@ -109,9 +126,9 @@ final class BarController {
     func temporarilyReveal(_ item: MenuBarItem, seconds: TimeInterval = 8) -> Bool {
         restoreNow()
 
-        savedSpacerLength = spacer.length
+        savedSpacerLength = currentSpacerLength
         savedChevronLength = chevron.length
-        spacer.length = 1
+        setSpacer(0)
 
         var visible = waitUntilVisible(pid: item.pid)
         if !visible {
@@ -138,7 +155,7 @@ final class BarController {
     private func restoreNow() {
         restoreTimer?.invalidate()
         restoreTimer = nil
-        if let s = savedSpacerLength { spacer.length = s; savedSpacerLength = nil }
+        if let s = savedSpacerLength { setSpacer(s); savedSpacerLength = nil }
         if let c = savedChevronLength { chevron.length = c; savedChevronLength = nil }
     }
 
