@@ -13,7 +13,9 @@ final class OverhangMenu: NSObject, NSMenuDelegate {
     func menuNeedsUpdate(_ menu: NSMenu) {
         menu.removeAllItems()
 
-        let hidden = StatusItemScanner.casualties(in: StatusItemScanner.scan())
+        let safeAreaMinX = NSScreen.main?.auxiliaryTopRightArea?.minX ?? 0
+        let hidden = StatusItemScanner.casualties(in: StatusItemScanner.scan(),
+                                                  safeAreaMinX: safeAreaMinX)
 
         if hidden.isEmpty {
             addDisabled("Nothing hidden")

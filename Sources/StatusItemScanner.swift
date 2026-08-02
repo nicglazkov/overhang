@@ -60,14 +60,28 @@ enum StatusItemScanner {
 
     /// Items the user has lost access to.
     ///
+    /// Two ways to lose one. The common case is culling: WindowServer stops compositing the
+    /// item and marks it offscreen. The quiet case is a layout quirk where an item registers
+    /// into a crowded bar and gets parked inside the dead zone while still marked onscreen,
+    /// composited behind the physical notch where nobody can see or click it. Both count.
+    ///
+    /// `safeAreaMinX` is the left edge of the usable status area, from
+    /// `NSScreen.auxiliaryTopRightArea`. Pass 0 on displays without a notch, which disables
+    /// the parked-item rule since the whole bar is usable.
+    ///
     /// An offscreen item is only a real casualty if nothing live occupies its space. Control
     /// Center leaves stale offscreen windows behind for modules the user disabled, and those
     /// overlap items that *are* on screen, without the intersection test they show up as
     /// phantoms in the menu.
-    static func casualties(in items: [MenuBarItem], excluding ownPID: pid_t = getpid()) -> [MenuBarItem] {
-        let live = items.filter { $0.isOnscreen }.map(\.frame)
+    static func casualties(in items: [MenuBarItem],
+                           safeAreaMinX: CGFloat,
+                           excluding ownPID: pid_t = getpid()) -> [MenuBarItem] {
+        func lost(_ item: MenuBarItem) -> Bool {
+            !item.isOnscreen || item.frame.maxX <= safeAreaMinX
+        }
+        let live = items.filter { $0.isOnscreen && !lost($0) }.map(\.frame)
         return items.filter { item in
-            guard !item.isOnscreen else { return false }
+            guard lost(item) else { return false }
             guard item.pid != ownPID else { return false }
             guard item.frame.minX > 0 else { return false }   // TextInputMenuAgent parks at x=0
             return !live.contains { $0.intersects(item.frame) }

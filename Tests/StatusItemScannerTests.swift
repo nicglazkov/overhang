@@ -19,7 +19,7 @@ final class StatusItemScannerTests: XCTestCase {
         // An overflowing item, allocated x=1010 to 1050 and never composited.
         let items = [item("Docker Desktop", x: 1010, w: 40, onscreen: false),
                      item("JetBrains Toolbox", x: 1050, w: 38, onscreen: true)]
-        let casualties = StatusItemScanner.casualties(in: items, excluding: ownPID)
+        let casualties = StatusItemScanner.casualties(in: items, safeAreaMinX: 1010, excluding: ownPID)
         XCTAssertEqual(casualties.map(\.ownerName), ["Docker Desktop"])
     }
 
@@ -30,26 +30,26 @@ final class StatusItemScannerTests: XCTestCase {
                      item("Control Center", x: 1350, w: 36, onscreen: false),
                      item("Control Center", x: 1479, w: 48, onscreen: false),
                      item("Control Center", x: 1466, w: 38, onscreen: true)]
-        XCTAssertTrue(StatusItemScanner.casualties(in: items, excluding: ownPID).isEmpty,
+        XCTAssertTrue(StatusItemScanner.casualties(in: items, safeAreaMinX: 1010, excluding: ownPID).isEmpty,
                       "phantoms overlap live items and must be filtered")
     }
 
     func testOwnItemsAreNeverCasualties() {
         // The app hides its own spacer; reporting it would be nonsense.
         let items = [item("Overhang", x: 900, w: 17, onscreen: false, pid: ownPID)]
-        XCTAssertTrue(StatusItemScanner.casualties(in: items, excluding: ownPID).isEmpty)
+        XCTAssertTrue(StatusItemScanner.casualties(in: items, safeAreaMinX: 1010, excluding: ownPID).isEmpty)
     }
 
     func testItemsParkedAtOriginAreIgnored() {
         // TextInputMenuAgent sits at x=0 permanently; it is not a casualty.
         let items = [item("TextInputMenuAgent", x: 0, w: 35, onscreen: false)]
-        XCTAssertTrue(StatusItemScanner.casualties(in: items, excluding: ownPID).isEmpty)
+        XCTAssertTrue(StatusItemScanner.casualties(in: items, safeAreaMinX: 1010, excluding: ownPID).isEmpty)
     }
 
     func testOnscreenItemsAreNeverCasualties() {
         let items = [item("Stats", x: 1160, w: 47, onscreen: true),
                      item("Stats", x: 1207, w: 47, onscreen: true)]
-        XCTAssertTrue(StatusItemScanner.casualties(in: items, excluding: ownPID).isEmpty)
+        XCTAssertTrue(StatusItemScanner.casualties(in: items, safeAreaMinX: 1010, excluding: ownPID).isEmpty)
     }
 
     func testSpacerHiddenRunIsReportedInFull() {
@@ -60,9 +60,26 @@ final class StatusItemScannerTests: XCTestCase {
             item(p.0, x: CGFloat(p.1), w: 30, onscreen: false, pid: pid_t(200 + i))
         }
         items.append(item("Ollama", x: 1144, w: 38, onscreen: true))
-        let casualties = StatusItemScanner.casualties(in: items, excluding: ownPID)
+        let casualties = StatusItemScanner.casualties(in: items, safeAreaMinX: 1010, excluding: ownPID)
         XCTAssertEqual(casualties.count, 6)
         XCTAssertEqual(casualties.first?.ownerName, "UTM", "results stay in left-to-right order")
+    }
+
+
+    func testItemParkedOnscreenInsideTheDeadZoneIsACasualty() {
+        // macOS layout quirk observed live: an item registered into a crowded bar and was
+        // parked at x=974 inside the dead zone, still marked onscreen, composited behind the
+        // physical notch where it can be neither seen nor clicked.
+        let items = [item("Pixel Audio Bridge", x: 974, w: 33, onscreen: true, pid: 300),
+                     item("UTM", x: 1052, w: 32, onscreen: true, pid: 301)]
+        let casualties = StatusItemScanner.casualties(in: items, safeAreaMinX: 1010, excluding: ownPID)
+        XCTAssertEqual(casualties.map(\.ownerName), ["Pixel Audio Bridge"])
+    }
+
+    func testParkedRuleIsInertWithoutANotch() {
+        // safeAreaMinX 0 models a display with no notch: everything onscreen is reachable.
+        let items = [item("Docker Desktop", x: 20, w: 45, onscreen: true)]
+        XCTAssertTrue(StatusItemScanner.casualties(in: items, safeAreaMinX: 0, excluding: ownPID).isEmpty)
     }
 
     func testVisibleExcludesOwnItems() {
