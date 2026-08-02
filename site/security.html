@@ -39,7 +39,7 @@
 
 <header class="shell doc">
   <h1>Security Policy</h1>
-  <p class="stamp">Applies to Overhang for macOS, all versions. Last updated 1 August 2026.</p>
+  <p class="stamp">Applies to Overhang for macOS, all versions. Last updated 2 August 2026.</p>
 </header>
 
 <main class="shell">
@@ -60,7 +60,7 @@
     <p>Overhang is a small utility with a single active line. Fixes are issued for the latest
     release only.</p>
     <table>
-      <tr><th>0.3.x</th><td>Supported</td></tr>
+      <tr><th>0.4.x</th><td>Supported</td></tr>
       <tr><th>Earlier</th><td>Not supported, please update</td></tr>
     </table>
   </section>
@@ -75,9 +75,15 @@
     verify a download before running it:</p>
     <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">codesign -dv --verbose=2 /Applications/Overhang.app</pre>
     <h3>Notarization</h3>
-    <p>Builds are signed but not currently notarized by Apple, which is why the first launch
-    requires a right click and Open. This is a known limitation and is stated plainly rather
-    than worked around. Do not disable Gatekeeper to run this or any other application.</p>
+    <p>Release builds are notarized by Apple and the ticket is stapled to the disk image and to
+    the app, so the app launches normally and validates even with no network connection. You
+    should never need to disable Gatekeeper or right click to open it. If a build asks you to,
+    it did not come from this project.</p>
+    <p>You can confirm the ticket on your own copy:</p>
+    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">spctl -a -vvv -t install /Applications/Overhang.app
+xcrun stapler validate /Applications/Overhang.app</pre>
+    <p>The first command should report <code>accepted</code> and
+    <code>source=Notarized Developer ID</code>.</p>
   </section>
 
   <section class="panel">
@@ -128,7 +134,7 @@ make install</pre>
 </main>
 
 <footer><div class="shell">
-  <span>Overhang 0.3.0. MIT licensed.</span>
+  <span>Overhang 0.4.0. MIT licensed.</span>
   <span class="grow"></span>
   <a href="privacy.html">Privacy</a>
   <a href="security.html">Security</a>

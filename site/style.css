@@ -394,3 +394,10 @@ footer a{color:var(--muted)}
   .hero{padding-top:52px}
   .panel{padding:24px}
 }
+
+/* A third install route that needs one line rather than a whole card. */
+.brewline{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:22px;
+  padding-top:22px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted)}
+.brewline code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;
+  background:var(--soft);border:1px solid var(--soft-line);border-radius:8px;
+  padding:8px 12px;color:var(--text);overflow-x:auto;max-width:100%}
