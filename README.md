@@ -21,22 +21,16 @@
 
 <br>
 
-<img src="site/img/menu.png" width="320" alt="Overhang's menu listing the status items macOS stopped drawing, each with its app icon">
+<img src="site/img/menu-card.png" width="330" alt="Overhang's menu listing the status items macOS stopped drawing, each with its app icon">
 
 </div>
 
 <br>
 
-When the menu bar fills up, macOS stops drawing icons. No warning, no overflow, no way to
-click them. The next icon is assigned a slot and simply never painted:
-
-```
-  0 ────────────── 790 ── NOTCH ── 1010 ─────────────────────── 1800
-  └── app menus ──┘   └─ 220pt ─┘  └──── 790pt for status items ────┘
-
-  x=1001.0  w=38.0  onscreen=N   JetBrains Toolbox   ← allocated, never drawn
-  x=1111.0  w=47.0  onscreen=Y   Stats               ← first one that fits
-```
+When the menu bar fills up, macOS stops drawing icons. There is no warning and no overflow
+control: the next icon is assigned a slot and simply never painted, which leaves it impossible
+to click. On a notched MacBook the status area is only 790 points wide, so it happens sooner
+than you would expect.
 
 Overhang puts one chevron at the rightmost slot a third party item can hold and lists
 everything macOS dropped. Click an entry and that item's own menu opens.
@@ -66,7 +60,7 @@ brew install --cask nicglazkov/tap/overhang
 **Direct download**
 
 Grab [`Overhang.dmg`](https://github.com/nicglazkov/overhang/releases/latest) and drag
-Overhang to Applications. It launches with no warning, no right click needed.
+Overhang to Applications. Signed and notarized by Apple, so it opens like any other app.
 
 **Build from source**
 
