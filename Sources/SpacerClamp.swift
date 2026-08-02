@@ -9,8 +9,8 @@ enum SpacerClamp {
     /// Largest spacer length that still leaves the chevron on screen.
     ///
     /// Growing the spacer shifts the whole third-party run leftward, the chevron included. If
-    /// the chevron crosses the notch boundary it is culled and the app becomes unreachable —
-    /// observed at length 10000, which displaced every third-party item. Headroom is therefore
+    /// the chevron crosses the notch boundary it is culled and the app becomes unreachable.
+    /// Observed at length 10000, which displaced every third-party item. Headroom is therefore
     /// measured from the chevron's live position rather than assumed.
     static func maxLength(chevronMinX: CGFloat,
                           notchMinX: CGFloat,

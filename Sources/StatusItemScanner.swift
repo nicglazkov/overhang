@@ -10,7 +10,7 @@ struct MenuBarItem: Hashable {
 
     var app: NSRunningApplication? { NSRunningApplication(processIdentifier: pid) }
 
-    /// The owning app's bundle icon. Free — no TCC permission involved.
+    /// The owning app's bundle icon. Free, no TCC permission involved.
     var icon: NSImage? {
         let image = app?.icon
         image?.size = NSSize(width: 16, height: 16)
@@ -62,7 +62,7 @@ enum StatusItemScanner {
     ///
     /// An offscreen item is only a real casualty if nothing live occupies its space. Control
     /// Center leaves stale offscreen windows behind for modules the user disabled, and those
-    /// overlap items that *are* on screen — without the intersection test they show up as
+    /// overlap items that *are* on screen, without the intersection test they show up as
     /// phantoms in the menu.
     static func casualties(in items: [MenuBarItem], excluding ownPID: pid_t = getpid()) -> [MenuBarItem] {
         let live = items.filter { $0.isOnscreen }.map(\.frame)

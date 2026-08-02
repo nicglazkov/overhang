@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Requirements, Overflow</title>
-<meta name="description" content="System requirements and compatibility for Overflow, a small macOS menu bar utility.">
+<title>Requirements, Overhang</title>
+<meta name="description" content="System requirements and compatibility for Overhang, a small macOS menu bar utility.">
 <meta name="theme-color" content="#f4f5fa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#08080c" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="img/icon.png">
 <script>
-  (function(){try{var s=localStorage.getItem("overflow-theme");
+  (function(){try{var s=localStorage.getItem("overhang-theme");
   if(s==="light"||s==="dark")document.documentElement.setAttribute("data-theme",s);}catch(e){}})();
 </script>
 <link rel="stylesheet" href="style.css">
@@ -17,13 +17,13 @@
 <body>
 
 <div class="bar"><div class="shell">
-  <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overflow</b></a>
+  <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overhang</b></a>
   <span class="grow"></span>
   <nav>
     <a href="index.html#features">Features</a>
     <a href="index.html#install">Install</a>
     <a href="index.html#faq">FAQ</a>
-    <a href="https://github.com/nicglazkov/overflow">Source</a>
+    <a href="https://github.com/nicglazkov/overhang">Source</a>
   </nav>
   <div class="themer" role="group" aria-label="Colour theme">
     <button type="button" id="lightBtn" aria-pressed="false" aria-label="Light theme">
@@ -39,7 +39,7 @@
 
 <header class="shell doc">
   <h1>Requirements</h1>
-  <p class="stamp">For Overflow 0.3.0. Last updated 1 August 2026.</p>
+  <p class="stamp">For Overhang 0.3.0. Last updated 1 August 2026.</p>
 </header>
 
 <main class="shell">
@@ -48,7 +48,7 @@
     <h2>System requirements</h2>
     <table>
       <tr><th>Operating system</th><td>macOS 14 Sonoma or later</td></tr>
-      <tr><th>Hardware</th><td>Apple silicon</td></tr>
+      <tr><th>Hardware</th><td>Apple silicon or Intel, universal binary</td></tr>
       <tr><th>Disk space</th><td>Under 2 MB</td></tr>
       <tr><th>Memory</th><td>Negligible, the app has no window open in normal use</td></tr>
       <tr><th>Network</th><td>Not required. The app makes no network requests</td></tr>
@@ -61,13 +61,13 @@
   <section class="panel">
     <h2>Display compatibility</h2>
     <h3>Notched Macs</h3>
-    <p>This is where Overflow helps most. The notch removes a section of usable menu bar, so the
+    <p>This is where Overhang helps most. The notch removes a section of usable menu bar, so the
     bar fills up sooner and icons start disappearing earlier.</p>
     <h3>Macs without a notch</h3>
     <p>Fully supported. A full menu bar drops icons on any Mac, the notch simply makes it happen
     with fewer icons.</p>
     <h3>External displays</h3>
-    <p>Supported. Overflow reads the usable region from the active display rather than assuming
+    <p>Supported. Overhang reads the usable region from the active display rather than assuming
     a fixed size, and recalculates when the display arrangement changes.</p>
   </section>
 
@@ -92,8 +92,8 @@
     <p>Icons are hidden by pushing them past the edge of the screen, so the space they occupied
     remains. Lower the hide amount to shrink it, or set it to zero.</p>
     <h3>Adding the control costs a slot</h3>
-    <p>On a completely full bar, Overflow's own icon displaces one existing icon. That icon then
-    appears in Overflow's menu, so it stays reachable.</p>
+    <p>On a completely full bar, Overhang's own icon displaces one existing icon. That icon then
+    appears in Overhang's menu, so it stays reachable.</p>
     <h3>Not notarized</h3>
     <p>The first launch needs a right click and Open. See the
     <a href="security.html">security policy</a> for detail.</p>
@@ -102,12 +102,12 @@
 </main>
 
 <footer><div class="shell">
-  <span>Overflow 0.3.0. MIT licensed.</span>
+  <span>Overhang 0.3.0. MIT licensed.</span>
   <span class="grow"></span>
   <a href="privacy.html">Privacy</a>
   <a href="security.html">Security</a>
   <a href="requirements.html">Requirements</a>
-  <a href="https://github.com/nicglazkov/overflow">Source</a>
+  <a href="https://github.com/nicglazkov/overhang">Source</a>
 </div></footer>
 
 <script src="theme.js"></script>

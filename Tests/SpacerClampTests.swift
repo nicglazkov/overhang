@@ -2,7 +2,7 @@ import XCTest
 
 /// The clamp exists to prevent one specific catastrophe: the app pushing its own chevron off
 /// screen, leaving the user with no way to reach it. Numbers below come from a real 14" MacBook
-/// Pro — notch boundary at x=1010, chevron parked at x=1568.
+/// Pro, notch boundary at x=1010, chevron parked at x=1568.
 final class SpacerClampTests: XCTestCase {
     private let notch: CGFloat = 1010
     private let chevron: CGFloat = 1568
@@ -24,7 +24,7 @@ final class SpacerClampTests: XCTestCase {
         let ceilingAtRest = SpacerClamp.maxLength(chevronMinX: chevron, notchMinX: notch, currentLength: 0)
         let ceilingAfterGrowth = SpacerClamp.maxLength(chevronMinX: chevron - 400, notchMinX: notch, currentLength: 400)
         XCTAssertEqual(ceilingAtRest, ceilingAfterGrowth,
-                       "total reachable length is invariant — the spacer trades its own width for headroom")
+                       "total reachable length is invariant, the spacer trades its own width for headroom")
     }
 
     func testNeverReturnsNegative() {

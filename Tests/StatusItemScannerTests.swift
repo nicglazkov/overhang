@@ -16,7 +16,7 @@ final class StatusItemScannerTests: XCTestCase {
     }
 
     func testCulledItemIsACasualty() {
-        // An overflowing item, allocated x=1010–1050 and never composited.
+        // An overflowing item, allocated x=1010 to 1050 and never composited.
         let items = [item("Docker Desktop", x: 1010, w: 40, onscreen: false),
                      item("JetBrains Toolbox", x: 1050, w: 38, onscreen: true)]
         let casualties = StatusItemScanner.casualties(in: items, excluding: ownPID)
@@ -36,7 +36,7 @@ final class StatusItemScannerTests: XCTestCase {
 
     func testOwnItemsAreNeverCasualties() {
         // The app hides its own spacer; reporting it would be nonsense.
-        let items = [item("Overflow", x: 900, w: 17, onscreen: false, pid: ownPID)]
+        let items = [item("Overhang", x: 900, w: 17, onscreen: false, pid: ownPID)]
         XCTAssertTrue(StatusItemScanner.casualties(in: items, excluding: ownPID).isEmpty)
     }
 
@@ -67,7 +67,7 @@ final class StatusItemScannerTests: XCTestCase {
 
     func testVisibleExcludesOwnItems() {
         let items = [item("Stats", x: 1160, w: 47, onscreen: true),
-                     item("Overflow", x: 1568, w: 38, onscreen: true, pid: ownPID)]
+                     item("Overhang", x: 1568, w: 38, onscreen: true, pid: ownPID)]
         XCTAssertEqual(StatusItemScanner.visible(in: items, excluding: ownPID).map(\.ownerName), ["Stats"])
     }
 }

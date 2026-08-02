@@ -23,22 +23,22 @@ jobs:
       - name: Generate project
         run: xcodegen generate
 
-      # Logic tests only — no host app, no launched UI, so this runs headless.
+      # Logic tests only, no host app, no launched UI, so this runs headless.
       - name: Test
         run: |
-          xcodebuild -project Overflow.xcodeproj -scheme Overflow \
+          xcodebuild -project Overhang.xcodeproj -scheme Overhang \
             -derivedDataPath build CODE_SIGN_IDENTITY="-" test
 
       - name: Build release
         run: |
-          xcodebuild -project Overflow.xcodeproj -scheme Overflow \
+          xcodebuild -project Overhang.xcodeproj -scheme Overhang \
             -configuration Release -derivedDataPath build \
             CODE_SIGN_IDENTITY="-" build
 
       - name: Package
-        run: ditto -c -k --keepParent build/Build/Products/Release/Overflow.app Overflow.zip
+        run: ditto -c -k --keepParent build/Build/Products/Release/Overhang.app Overhang.zip
 
       - uses: actions/upload-artifact@v4
         with:
-          name: Overflow.app
-          path: Overflow.zip
+          name: Overhang.app
+          path: Overhang.zip

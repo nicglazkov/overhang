@@ -50,7 +50,7 @@ func draw(size S: CGFloat) -> NSBitmapImageRep {
     g.fillPath()
 
     // Punch the notch back out to the gradient underneath. Square at the top where it meets the
-    // screen edge, rounded only at the bottom — otherwise it reads as a floating pill.
+    // screen edge, rounded only at the bottom, otherwise it reads as a floating pill.
     let nr = min(notchH * 0.45, notchW * 0.22)
     let notchPath = CGMutablePath()
     notchPath.move(to: CGPoint(x: notch.minX, y: notch.maxY))
@@ -71,7 +71,7 @@ func draw(size S: CGFloat) -> NSBitmapImageRep {
                          end: CGPoint(x: body.midX, y: body.minY), options: [])
     g.restoreGState()
 
-    // Status items to the right of the notch; the leftmost is dimmed — the one falling off.
+    // Status items to the right of the notch; the leftmost is dimmed, the one falling off.
     let dotD = barH * 0.34
     let gap = dotD * 1.55
     let alphas: [CGFloat] = [0.25, 0.55, 0.85]

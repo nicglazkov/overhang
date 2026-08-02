@@ -1,7 +1,7 @@
 import AppKit
 
 /// The dropdown. Rebuilt on every open so it always reflects the live bar.
-final class OverflowMenu: NSObject, NSMenuDelegate {
+final class OverhangMenu: NSObject, NSMenuDelegate {
     weak var controller: BarController?
     let menu = NSMenu()
 
@@ -49,7 +49,7 @@ final class OverflowMenu: NSObject, NSMenuDelegate {
             add("Enable click-through…", #selector(enableClickThrough))
         }
         add("Settings…", #selector(openSettings), key: ",")
-        add("Quit Overflow", #selector(quit), key: "q")
+        add("Quit Overhang", #selector(quit), key: "q")
     }
 
     private func add(_ title: String, _ action: Selector, key: String = "") {
@@ -72,7 +72,7 @@ final class OverflowMenu: NSObject, NSMenuDelegate {
 
         if Activator.open(item) == .opened { return }
 
-        // AXPress did nothing — either we are untrusted, or this item consumes the mouse event
+        // AXPress did nothing, either we are untrusted, or this item consumes the mouse event
         // itself. Put it back on screen so it can be clicked by hand, and bring the app forward
         // so something visibly happens either way.
         controller?.temporarilyReveal(item)

@@ -1,4 +1,4 @@
-name: Overflow
+name: Overhang
 options:
   bundleIdPrefix: com.nic
   deploymentTarget:
@@ -6,7 +6,7 @@ options:
   createIntermediateGroups: true
 
 targets:
-  Overflow:
+  Overhang:
     type: application
     platform: macOS
     sources:
@@ -14,34 +14,38 @@ targets:
     info:
       path: Sources/Info.plist
       properties:
-        CFBundleName: Overflow
-        CFBundleDisplayName: Overflow
-        CFBundleShortVersionString: "0.3.0"
-        CFBundleVersion: "3"
-        CFBundleIconFile: Overflow
+        CFBundleName: Overhang
+        CFBundleDisplayName: Overhang
+        CFBundleShortVersionString: "0.4.0"
+        CFBundleVersion: "4"
+        CFBundleIconFile: Overhang
         LSUIElement: true
         LSMinimumSystemVersion: "14.0"
         LSApplicationCategoryType: public.app-category.utilities
         NSHumanReadableCopyright: "Copyright © 2026 Nicholas Glazkov. MIT licensed."
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.nic.overflow
-        MARKETING_VERSION: "0.3.0"
-        CURRENT_PROJECT_VERSION: "3"
+        PRODUCT_BUNDLE_IDENTIFIER: com.nic.overhang
+        MARKETING_VERSION: "0.4.0"
+        CURRENT_PROJECT_VERSION: "4"
         SWIFT_VERSION: "5.0"
         # Ad-hoc by default so the project builds for anyone who clones it.
         #
         # Ad-hoc signatures rehash on every build, and Accessibility grants are bound to the
-        # signature — so macOS revokes the grant after each rebuild. If you are iterating and
+        # signature, so macOS revokes the grant after each rebuild. If you are iterating and
         # want the grant to stick, build with your own identity:
         #
         #   make install SIGN_ID="Apple Development: Your Name (XXXXXXXXXX)" TEAM_ID=YYYYYYYYYY
         CODE_SIGN_STYLE: Manual
         CODE_SIGN_IDENTITY: "-"
-        ENABLE_HARDENED_RUNTIME: NO
+        ENABLE_HARDENED_RUNTIME: YES
+        # Notarization rejects a signature without a secure timestamp, and rejects any binary
+        # carrying the debug get-task-allow entitlement that Xcode injects by default.
+        OTHER_CODE_SIGN_FLAGS: "--timestamp"
+        CODE_SIGN_INJECT_BASE_ENTITLEMENTS: NO
         COMBINE_HIDPI_IMAGES: YES
 
-  OverflowTests:
+  OverhangTests:
     type: bundle.unit-test
     platform: macOS
     sources:
@@ -54,17 +58,17 @@ targets:
       base:
         SWIFT_VERSION: "5.0"
         GENERATE_INFOPLIST_FILE: YES
-        PRODUCT_BUNDLE_IDENTIFIER: com.nic.overflow.tests
+        PRODUCT_BUNDLE_IDENTIFIER: com.nic.overhang.tests
         CODE_SIGN_IDENTITY: "-"
 
 schemes:
-  Overflow:
+  Overhang:
     build:
       targets:
-        Overflow: all
-        OverflowTests: [test]
+        Overhang: all
+        OverhangTests: [test]
     test:
       targets:
-        - OverflowTests
+        - OverhangTests
     run:
       config: Debug

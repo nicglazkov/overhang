@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Overflow, a small utility for the macOS menu bar</title>
-<meta name="description" content="Nothing in your menu bar goes missing. Overflow recovers the status items macOS stops drawing when the bar fills up. Free, open source, no permissions required.">
+<title>Overhang, a small utility for the macOS menu bar</title>
+<meta name="description" content="Nothing in your menu bar goes missing. Overhang recovers the status items macOS stops drawing when the bar fills up. Free, open source, no permissions required.">
 <meta name="theme-color" content="#f4f5fa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#08080c" media="(prefers-color-scheme: dark)">
-<meta property="og:title" content="Overflow">
+<meta property="og:title" content="Overhang">
 <meta property="og:description" content="Nothing in your menu bar goes missing.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://nicglazkov.github.io/overflow/img/icon.png">
+<meta property="og:image" content="https://nicglazkov.github.io/overhang/img/icon.png">
 <link rel="icon" href="img/icon.png">
 <script>
   // Applied before first paint so the page never flashes the wrong theme.
-  (function(){try{var s=localStorage.getItem("overflow-theme");
+  (function(){try{var s=localStorage.getItem("overhang-theme");
   if(s==="light"||s==="dark")document.documentElement.setAttribute("data-theme",s);}catch(e){}})();
 </script>
 <link rel="stylesheet" href="style.css">
@@ -22,13 +22,13 @@
 <body>
 
 <div class="bar"><div class="shell">
-  <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overflow</b></a>
+  <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overhang</b></a>
   <span class="grow"></span>
   <nav>
     <a href="#features">Features</a>
     <a href="#install">Install</a>
     <a href="#faq">FAQ</a>
-    <a href="https://github.com/nicglazkov/overflow">Source</a>
+    <a href="https://github.com/nicglazkov/overhang">Source</a>
   </nav>
   <div class="themer" role="group" aria-label="Colour theme">
     <button type="button" id="lightBtn" aria-pressed="false" aria-label="Light theme">
@@ -43,15 +43,15 @@
 </div></div>
 
 <header class="hero shell">
-  <img class="icon" src="img/icon.png" alt="Overflow app icon">
+  <img class="icon" src="img/icon.png" alt="Overhang app icon">
   <h1>Nothing in your menu bar goes missing.</h1>
   <p class="lede">
-    When the menu bar fills up, macOS stops drawing icons. No warning, no overflow, no way to
-    click them. Overflow gives those items somewhere to go.
+    When the menu bar fills up, macOS stops drawing icons. No warning, no overhang, no way to
+    click them. Overhang gives those items somewhere to go.
   </p>
   <div class="cta">
-    <a class="fill" href="https://github.com/nicglazkov/overflow/releases/latest">Download</a>
-    <a class="ghost" href="https://github.com/nicglazkov/overflow">View source</a>
+    <a class="fill" href="https://github.com/nicglazkov/overhang/releases/latest">Download</a>
+    <a class="ghost" href="https://github.com/nicglazkov/overhang">View source</a>
   </div>
   <p class="fineprint">Version 0.3.0. Free and open source. No permissions required.</p>
 </header>
@@ -83,7 +83,7 @@
     <div class="b1">
       <div class="row">
         <div class="art">
-          <img src="img/menu.png" alt="Overflow's menu listing hidden status items with their app icons">
+          <img src="img/menu.png" alt="Overhang's menu listing hidden status items with their app icons">
         </div>
         <div>
           <h3>Everything that went missing</h3>
@@ -93,7 +93,7 @@
       </div>
       <div class="row flip">
         <div class="art">
-          <img src="img/settings.png" alt="Overflow's settings window">
+          <img src="img/settings.png" alt="Overhang's settings window">
         </div>
         <div>
           <h3>Three settings, no more</h3>
@@ -112,21 +112,21 @@
         <h3>Download the app</h3>
         <ol>
           <li>
-            <strong>Download Overflow.zip</strong>
+            <strong>Download Overhang.zip</strong>
             <span>Built for macOS 14 and later on Apple silicon. Under 2 MB.</span>
             <div class="instep-actions">
-              <a class="instep-btn" href="https://github.com/nicglazkov/overflow/releases/latest">Download 0.3.0</a>
-              <a class="instep-link" href="https://github.com/nicglazkov/overflow/releases">All releases</a>
+              <a class="instep-btn" href="https://github.com/nicglazkov/overhang/releases/latest">Download 0.3.0</a>
+              <a class="instep-link" href="https://github.com/nicglazkov/overhang/releases">All releases</a>
             </div>
           </li>
           <li>
             <strong>Move it to Applications</strong>
-            <span>Unzip the download, then drag <code>Overflow.app</code> into your Applications
+            <span>Unzip the download, then drag <code>Overhang.app</code> into your Applications
             folder.</span>
           </li>
           <li>
             <strong>Right click, then choose Open</strong>
-            <span>Overflow is signed but not notarized, so macOS asks for confirmation the first
+            <span>Overhang is signed but not notarized, so macOS asks for confirmation the first
             time. It will not ask again.</span>
             <div class="instep-actions">
               <a class="instep-link" href="security.html">Why this is needed</a>
@@ -135,7 +135,7 @@
           <li>
             <strong>Turn on click through</strong>
             <span>Optional. Grants Accessibility so a hidden item opens its own menu when you
-            click it. Overflow works without it.</span>
+            click it. Overhang works without it.</span>
             <div class="instep-actions">
               <a class="instep-link" href="security.html">What Accessibility allows</a>
               <a class="instep-link" href="privacy.html">How it is used</a>
@@ -147,13 +147,13 @@
         <h3>Build from source</h3>
         <p class="hint">Needs Xcode 15 or later and XcodeGen.</p>
         <pre>brew install xcodegen
-git clone https://github.com/nicglazkov/overflow.git
-cd overflow
+git clone https://github.com/nicglazkov/overhang.git
+cd overhang
 make install</pre>
         <p class="hint" style="margin-top:16px">Builds, signs ad hoc, and copies the app into
         Applications. Run <code>make test</code> to check the suite first.</p>
         <div class="instep-actions">
-          <a class="instep-link" href="https://github.com/nicglazkov/overflow">View the source</a>
+          <a class="instep-link" href="https://github.com/nicglazkov/overhang">View the source</a>
           <a class="instep-link" href="requirements.html">Build requirements</a>
         </div>
       </div>
@@ -163,16 +163,16 @@ make install</pre>
   <section class="panel qa-list" id="faq">
     <h2>FAQ</h2>
     <details>
-      <summary>Does Overflow need any permissions?</summary>
+      <summary>Does Overhang need any permissions?</summary>
       <p>No. Finding, listing and hiding items all work with nothing granted. Accessibility is
       optional and does one thing: it lets a hidden item open its own menu when you click it.
-      Decline it and Overflow brings the item back into the bar for eight seconds so you can
+      Decline it and Overhang brings the item back into the bar for eight seconds so you can
       click it yourself.</p>
     </details>
     <details>
       <summary>Why does it never ask for Screen Recording?</summary>
       <p>Other menu bar managers need it because they redraw other apps' status item images, and
-      capturing those pixels requires permission. Overflow draws each app's own bundle icon
+      capturing those pixels requires permission. Overhang draws each app's own bundle icon
       instead, so the question never arises.</p>
     </details>
     <details>
@@ -183,7 +183,7 @@ make install</pre>
     <details>
       <summary>Some hidden items do not respond when I click them.</summary>
       <p>Items built on a standard menu open directly. A few apps handle the mouse event
-      themselves and ignore anything else, so Overflow cannot press them. Those fall back to
+      themselves and ignore anything else, so Overhang cannot press them. Those fall back to
       revealing the item in the bar so you can click it by hand. This depends on how the app was
       built, not on where its icon sits.</p>
     </details>
@@ -195,13 +195,13 @@ make install</pre>
     <details>
       <summary>Do I need a Mac with a notch?</summary>
       <p>No. The notch makes the problem worse by removing usable space, but any full menu bar
-      drops items. Overflow behaves the same on external displays and older Macs. See
+      drops items. Overhang behaves the same on external displays and older Macs. See
       <a href="requirements.html">requirements</a> for detail.</p>
     </details>
     <details>
       <summary>What does it cost?</summary>
-      <p>Nothing. Overflow is free and MIT licensed, and the full source is on
-      <a href="https://github.com/nicglazkov/overflow">GitHub</a>.</p>
+      <p>Nothing. Overhang is free and MIT licensed, and the full source is on
+      <a href="https://github.com/nicglazkov/overhang">GitHub</a>.</p>
     </details>
   </section>
 
@@ -211,7 +211,7 @@ make install</pre>
     <div class="trio">
       <div class="chip">
         <h3><a href="privacy.html">Privacy Policy</a></h3>
-        <p>What Overflow collects, which is nothing, and what the app reads on your Mac.</p>
+        <p>What Overhang collects, which is nothing, and what the app reads on your Mac.</p>
       </div>
       <div class="chip">
         <h3><a href="security.html">Security Policy</a></h3>
@@ -227,13 +227,13 @@ make install</pre>
 </main>
 
 <footer><div class="shell">
-  <span>Overflow 0.3.0. MIT licensed.</span>
+  <span>Overhang 0.3.0. MIT licensed.</span>
   <span class="grow"></span>
   <a href="privacy.html">Privacy</a>
   <a href="security.html">Security</a>
   <a href="requirements.html">Requirements</a>
-  <a href="https://github.com/nicglazkov/overflow/releases">Releases</a>
-  <a href="https://github.com/nicglazkov/overflow/issues">Support</a>
+  <a href="https://github.com/nicglazkov/overhang/releases">Releases</a>
+  <a href="https://github.com/nicglazkov/overhang/issues">Support</a>
 </div></footer>
 
 <script src="theme.js"></script>

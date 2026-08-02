@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security Policy, Overflow</title>
-<meta name="description" content="How Overflow is signed and distributed, what permissions it uses, and how to report a vulnerability.">
+<title>Security Policy, Overhang</title>
+<meta name="description" content="How Overhang is signed and distributed, what permissions it uses, and how to report a vulnerability.">
 <meta name="theme-color" content="#f4f5fa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#08080c" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="img/icon.png">
 <script>
-  (function(){try{var s=localStorage.getItem("overflow-theme");
+  (function(){try{var s=localStorage.getItem("overhang-theme");
   if(s==="light"||s==="dark")document.documentElement.setAttribute("data-theme",s);}catch(e){}})();
 </script>
 <link rel="stylesheet" href="style.css">
@@ -17,13 +17,13 @@
 <body>
 
 <div class="bar"><div class="shell">
-  <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overflow</b></a>
+  <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overhang</b></a>
   <span class="grow"></span>
   <nav>
     <a href="index.html#features">Features</a>
     <a href="index.html#install">Install</a>
     <a href="index.html#faq">FAQ</a>
-    <a href="https://github.com/nicglazkov/overflow">Source</a>
+    <a href="https://github.com/nicglazkov/overhang">Source</a>
   </nav>
   <div class="themer" role="group" aria-label="Colour theme">
     <button type="button" id="lightBtn" aria-pressed="false" aria-label="Light theme">
@@ -39,7 +39,7 @@
 
 <header class="shell doc">
   <h1>Security Policy</h1>
-  <p class="stamp">Applies to Overflow for macOS, all versions. Last updated 1 August 2026.</p>
+  <p class="stamp">Applies to Overhang for macOS, all versions. Last updated 1 August 2026.</p>
 </header>
 
 <main class="shell">
@@ -48,7 +48,7 @@
     <h2>Reporting a vulnerability</h2>
     <p>If you find a security problem, please report it privately first rather than opening a
     public issue. Use GitHub's
-    <a href="https://github.com/nicglazkov/overflow/security/advisories/new">private vulnerability reporting</a>
+    <a href="https://github.com/nicglazkov/overhang/security/advisories/new">private vulnerability reporting</a>
     on the repository.</p>
     <p>Please include what you found, the version you tested, and the steps to reproduce it. You
     will get an acknowledgement within seven days. Once a fix ships, the advisory is published
@@ -57,7 +57,7 @@
 
   <section class="panel">
     <h2>Supported versions</h2>
-    <p>Overflow is a small utility with a single active line. Fixes are issued for the latest
+    <p>Overhang is a small utility with a single active line. Fixes are issued for the latest
     release only.</p>
     <table>
       <tr><th>0.3.x</th><td>Supported</td></tr>
@@ -73,7 +73,7 @@
     <h3>Signature</h3>
     <p>Release builds are signed with an Apple Developer ID certificate, team M7D6YHVDNK. You can
     verify a download before running it:</p>
-    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">codesign -dv --verbose=2 /Applications/Overflow.app</pre>
+    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">codesign -dv --verbose=2 /Applications/Overhang.app</pre>
     <h3>Notarization</h3>
     <p>Builds are signed but not currently notarized by Apple, which is why the first launch
     requires a right click and Open. This is a known limitation and is stated plainly rather
@@ -83,24 +83,24 @@
   <section class="panel">
     <h2>Permissions and what they allow</h2>
     <h3>Runs with none by default</h3>
-    <p>Finding, listing and hiding menu bar items require no permission at all. Overflow reads
+    <p>Finding, listing and hiding menu bar items require no permission at all. Overhang reads
     window geometry through a public system API that has never been access controlled.</p>
     <h3>Accessibility, optional</h3>
     <p>Granting Accessibility is a meaningful decision and worth understanding. In general it
     allows an application to observe and control the user interface of other applications.</p>
-    <p>Overflow uses it for exactly one operation: pressing a status item that you chose from its
+    <p>Overhang uses it for exactly one operation: pressing a status item that you chose from its
     menu. It does not register event taps, does not observe keystrokes, and does not read the
     contents of other applications. The relevant code is a single function in
-    <a href="https://github.com/nicglazkov/overflow/blob/main/Sources/Activator.swift">Sources/Activator.swift</a>
+    <a href="https://github.com/nicglazkov/overhang/blob/main/Sources/Activator.swift">Sources/Activator.swift</a>
     and is short enough to read in full.</p>
     <h3>Screen Recording, never requested</h3>
-    <p>Overflow does not ask for Screen Recording in any code path. If a build ever prompts you
+    <p>Overhang does not ask for Screen Recording in any code path. If a build ever prompts you
     for it, that build did not come from this project. Please report it.</p>
   </section>
 
   <section class="panel">
     <h2>Dependencies</h2>
-    <p>Overflow has no third party dependencies. It links only Apple system frameworks, so there
+    <p>Overhang has no third party dependencies. It links only Apple system frameworks, so there
     is no supply chain of packages to audit and nothing can be pulled in at build time from an
     external registry.</p>
   </section>
@@ -119,8 +119,8 @@
     <h2>Verifying a build yourself</h2>
     <p>Because the source is public and there are no dependencies, you can build the app from
     source and compare behaviour rather than trusting the published binary.</p>
-    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">git clone https://github.com/nicglazkov/overflow.git
-cd overflow
+    <pre style="background:var(--soft);border:1px solid var(--soft-line);border-radius:10px;padding:14px 16px;margin:8px 0 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--text)">git clone https://github.com/nicglazkov/overhang.git
+cd overhang
 make test
 make install</pre>
   </section>
@@ -128,12 +128,12 @@ make install</pre>
 </main>
 
 <footer><div class="shell">
-  <span>Overflow 0.3.0. MIT licensed.</span>
+  <span>Overhang 0.3.0. MIT licensed.</span>
   <span class="grow"></span>
   <a href="privacy.html">Privacy</a>
   <a href="security.html">Security</a>
   <a href="requirements.html">Requirements</a>
-  <a href="https://github.com/nicglazkov/overflow">Source</a>
+  <a href="https://github.com/nicglazkov/overhang">Source</a>
 </div></footer>
 
 <script src="theme.js"></script>

@@ -11,14 +11,14 @@ final class SettingsWindowController {
         if window == nil {
             let hosting = NSHostingController(rootView: SettingsView(controller: controller))
             let w = NSWindow(contentViewController: hosting)
-            w.title = "Overflow"
+            w.title = "Overhang"
             w.styleMask = [.titled, .closable]
             w.isReleasedWhenClosed = false
             w.center()
             window = w
         }
         // Accessory apps are not in the Dock, so the window needs an explicit activation to
-        // come forward — otherwise it opens behind whatever the user is looking at.
+        // come forward, otherwise it opens behind whatever the user is looking at.
         NSApp.activate(ignoringOtherApps: true)
         window?.makeKeyAndOrderFront(nil)
     }
@@ -92,7 +92,7 @@ struct SettingsView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 Spacer()
-                Button("Quit Overflow") { NSApp.terminate(nil) }
+                Button("Quit Overhang") { NSApp.terminate(nil) }
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 12)
@@ -112,7 +112,7 @@ struct SettingsView: View {
                 .resizable()
                 .frame(width: 56, height: 56)
             VStack(alignment: .leading, spacing: 3) {
-                Text("Overflow").font(.title2).bold()
+                Text("Overhang").font(.title2).bold()
                 Text(version).font(.caption).foregroundStyle(.secondary)
                 Text("Reaches menu bar items hidden by the notch.")
                     .font(.caption)

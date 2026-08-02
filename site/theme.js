@@ -19,7 +19,7 @@
 
   function choose(theme) {
     root.setAttribute("data-theme", theme);
-    try { localStorage.setItem("overflow-theme", theme); } catch (e) {}
+    try { localStorage.setItem("overhang-theme", theme); } catch (e) {}
     paint();
   }
 

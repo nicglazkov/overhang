@@ -13,13 +13,12 @@ enum ActivationOutcome {
 ///
 /// Coverage is partial by nature: items backed by an `NSMenu` respond to `AXPress`, but items
 /// that consume the mouse event themselves (popover-based items, observed in testing)
-/// ignore it even when fully visible. We therefore never assume success — we press, look for
+/// ignore it even when fully visible. We therefore never assume success, we press, look for
 /// something to actually appear, and report honestly so the caller can degrade.
 enum Activator {
     static var isTrusted: Bool { AXIsProcessTrusted() }
 
-    /// Shows the system Accessibility prompt. Only ever called from an explicit menu action —
-    /// the app must never prompt on its own.
+    /// Shows the system Accessibility prompt. Only ever called from an explicit menu action, /// the app must never prompt on its own.
     static func requestTrust() {
         let key = kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String
         _ = AXIsProcessTrustedWithOptions([key: true] as CFDictionary)

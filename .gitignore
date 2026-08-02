@@ -1,6 +1,7 @@
 build/
 *.xcodeproj/
-Overflow.zip
-Overflow.iconset/
+Overhang.zip
+Overhang.iconset/
 .DS_Store
 site/_compare/
+Overhang.dmg

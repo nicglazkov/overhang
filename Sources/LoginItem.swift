@@ -3,7 +3,7 @@ import ServiceManagement
 
 /// Launch-at-login, via the modern registration API.
 ///
-/// `SMAppService.mainApp` needs no helper bundle and no `SMLoginItemSetEnabled` shim — the
+/// `SMAppService.mainApp` needs no helper bundle and no `SMLoginItemSetEnabled` shim, the
 /// system reads the app's own bundle. Registration survives moves within /Applications.
 enum LoginItem {
     static var isEnabled: Bool { SMAppService.mainApp.status == .enabled }
@@ -19,7 +19,7 @@ enum LoginItem {
             }
             return isEnabled
         } catch {
-            NSLog("Overflow: login item \(enabled ? "register" : "unregister") failed — \(error)")
+            NSLog("Overhang: login item \(enabled ? "register" : "unregister") failed, \(error)")
             return nil
         }
     }

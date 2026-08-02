@@ -4,13 +4,13 @@ final class BarController {
     private let bar = NSStatusBar.system
     private var spacer: NSStatusItem!
     private var chevron: NSStatusItem!
-    private let menuController = OverflowMenu()
+    private let menuController = OverhangMenu()
     private let settings = SettingsWindowController()
 
     func showSettings() { settings.show() }
 
-    private static let spacerAutosave = "com.nic.overflow.spacer"
-    private static let chevronAutosave = "com.nic.overflow.chevron"
+    private static let spacerAutosave = "com.nic.overhang.spacer"
+    private static let chevronAutosave = "com.nic.overhang.chevron"
     private static let lengthKey = "SpacerLength"
 
     /// Step used by Hide more / Hide less.
@@ -102,7 +102,7 @@ final class BarController {
     /// Bring `item` back on screen long enough for the user to click it themselves, then undo.
     ///
     /// Two cases. If our own spacer is what pushed it off, collapsing the spacer is enough. If
-    /// the bar was simply full — the item was already a casualty at spacer 0 — the only space we
+    /// the bar was simply full, the item was already a casualty at spacer 0, the only space we
     /// control is our own chevron, so we surrender that too and rely on the timer to bring it
     /// back. Returns whether the item actually became visible.
     @discardableResult
