@@ -281,6 +281,7 @@ section[id]{scroll-margin-top:76px}
 .d1 .track,.d2 .track,.d3 .track,.d4 .track,.d5 .track{background:var(--glass-inner);
   border-radius:16px;padding:24px}
 .d1 h3,.d2 h3,.d3 h3,.d4 h3,.d5 h3{font-size:15px;margin:0 0 4px;font-weight:600}
+.d2 .track.lead h3{margin-bottom:16px}
 .d1 .hint,.d2 .hint,.d3 .hint,.d4 .hint,.d5 .hint{font-size:12.5px;color:var(--faint);margin:0 0 18px}
 .d1 ol,.d2 ol,.d3 ol,.d4 ol,.d5 ol{list-style:none;counter-reset:s;padding:0;margin:0}
 .d1 ol li,.d2 ol li,.d3 ol li,.d4 ol li,.d5 ol li{counter-increment:s;position:relative;
