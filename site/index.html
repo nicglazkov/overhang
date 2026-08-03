@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Overhang, a small utility for the macOS menu bar</title>
-<meta name="description" content="Nothing in your menu bar goes missing. Overhang recovers the status items macOS stops drawing when the bar fills up. Free, open source, no permissions required.">
+<meta name="description" content="Nothing in your menu bar goes missing. Overhang recovers the status items macOS stops drawing when the bar fills up. Free, open source, one optional permission.">
 <meta name="theme-color" content="#f4f5fa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#08080c" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Overhang">
@@ -53,7 +53,7 @@
     <a class="fill" href="https://github.com/nicglazkov/overhang/releases/latest">Download</a>
     <a class="ghost" href="https://github.com/nicglazkov/overhang">View source</a>
   </div>
-  <p class="fineprint">Version 0.5.3. Free and open source. No permissions required.</p>
+  <p class="fineprint">Version 0.5.3. Free and open source. One optional permission, nothing more.</p>
 </header>
 
 <main class="shell">
@@ -71,8 +71,9 @@
         <p>Click an entry and that item's own menu opens, just as if you had clicked it in the bar.</p>
       </div>
       <div class="chip">
-        <h3>Asks for nothing</h3>
-        <p>Runs without a single permission. Screen Recording is never requested. Nothing leaves your Mac.</p>
+        <h3>One optional permission</h3>
+        <p>Everything except click-through works with nothing granted. Screen Recording is never
+        requested. Nothing leaves your Mac.</p>
       </div>
     </div>
   </section>
@@ -166,9 +167,10 @@ make install</pre>
     <h2>FAQ</h2>
     <details>
       <summary>Does Overhang need any permissions?</summary>
-      <p>No. Finding and listing items works with nothing granted. Accessibility is
-      optional and does one thing: it lets a hidden item open its own menu when you click it.
-      Decline it and clicking an entry brings that item's app to the front instead.</p>
+      <p>One, and only if you want click-through. Finding and listing items works with nothing
+      granted. Enabling click-through asks for Accessibility, which lets a hidden item open its
+      own menu when you click it. Decline it and clicking an entry brings that item's app to
+      the front instead.</p>
     </details>
     <details>
       <summary>Why does it never ask for Screen Recording?</summary>

@@ -46,7 +46,7 @@ everything macOS dropped. Click an entry and that item's own menu opens.
 |---|---|
 | 🔍 **Finds what is hidden** | Every dropped status item, each with the icon of the app that owns it |
 | 🖱️ **Opens them normally** | One click and the item's own menu opens, as if it were still in the bar |
-| 🔒 **Asks for nothing** | No permissions required. Screen Recording is never requested. No network, no analytics |
+| 🔒 **One optional permission** | Everything except click-through works with nothing granted. Accessibility, if you enable it, opens hidden items' menus. Screen Recording is never requested |
 | ✅ **Notarized** | Signed with a Developer ID certificate, notarized by Apple, stapled. Double click and it runs |
 | 🪶 **Tiny** | A single native binary under 2 MB. Universal, Apple silicon and Intel. Zero dependencies |
 
@@ -78,7 +78,8 @@ make install
 
 ## How it works
 
-No Screen Recording, no private API, no accessibility requirement. Two mechanisms, each
+No Screen Recording and no private API. Accessibility is asked for only if you enable
+click-through. Two mechanisms, each
 verified by measurement before being relied on:
 
 <details>
