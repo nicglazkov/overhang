@@ -26,14 +26,39 @@ final class BarController {
         chevron = bar.statusItem(withLength: NSStatusItem.squareLength)
         chevron.autosaveName = Self.chevronAutosave
         if let button = chevron.button {
-            button.image = NSImage(systemSymbolName: "chevron.down",
-                                   accessibilityDescription: "Hidden menu bar items")
-            button.image?.isTemplate = true
+            button.image = Self.leftAnchoredChevron()
         }
 
         menuController.controller = self
         settings.controller = self
         chevron.menu = menuController.menu
+    }
+
+    /// The chevron glyph, anchored to the leading edge of its content box rather than centred.
+    ///
+    /// When the bar reflows, an item leaving, or a culled item being composited for menu
+    /// tracking, WindowServer shifts the third-party run right by around 22pt. Every item
+    /// absorbs that by moving except this one, which sits against the immovable system cluster
+    /// and gets its window clipped to roughly 16pt instead. The clip always keeps the window's
+    /// left edge, so a centred glyph survives as a couple of pixels while a left-anchored one
+    /// stays recognisable. Purely cosmetic resilience; the layout is macOS's and restores on
+    /// its own.
+    private static func leftAnchoredChevron() -> NSImage? {
+        guard let symbol = NSImage(systemSymbolName: "chevron.down",
+                                   accessibilityDescription: "Hidden menu bar items")
+        else { return nil }
+        let box = NSSize(width: 22, height: 16)
+        let glyph = symbol.size
+        let image = NSImage(size: box, flipped: false) { _ in
+            symbol.draw(in: NSRect(x: 0,
+                                   y: (box.height - glyph.height) / 2,
+                                   width: glyph.width,
+                                   height: glyph.height))
+            return true
+        }
+        image.isTemplate = true
+        image.accessibilityDescription = "Hidden menu bar items"
+        return image
     }
 
     // MARK: - Temporary reveal (fallback when AXPress does not work)
