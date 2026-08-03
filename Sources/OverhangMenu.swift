@@ -69,9 +69,10 @@ final class OverhangMenu: NSObject, NSMenuDelegate {
         if Activator.open(item) == .opened { return }
 
         // AXPress did nothing, either we are untrusted, or this item consumes the mouse event
-        // itself. Put it back on screen so it can be clicked by hand, and bring the app forward
-        // so something visibly happens either way.
-        controller?.temporarilyReveal(item)
+        // itself. Bring the owning app forward so something visibly happens. An earlier version
+        // also collapsed the chevron to make room for the item, but the most that could ever
+        // free was 22pt, which reveals nothing, while leaving a dead 16pt stub where the
+        // chevron was for eight seconds; the layout shift users saw was that stub.
         item.app?.activate(options: [.activateAllWindows])
     }
 

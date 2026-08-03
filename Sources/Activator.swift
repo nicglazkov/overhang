@@ -33,8 +33,10 @@ enum Activator {
             return .failed
         }
 
-        // Menus and popovers are windows. Poll briefly rather than guessing a fixed delay.
-        for _ in 0..<8 {
+        // Menus and popovers are windows. Poll rather than guessing a fixed delay, and give a
+        // slow app real time: a menu that opens at 700ms is a success, and misreading it as a
+        // failure used to fire the fallback on top of a working click-through.
+        for _ in 0..<20 {
             Thread.sleep(forTimeInterval: 0.08)
             if hasMenuChild(element) || windowCount(pid: item.pid) > before { return .opened }
         }

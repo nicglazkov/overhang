@@ -192,3 +192,18 @@ reserves about 17pt, so an idle spacer sat in the bar as a blank clickable item.
 The app now owns exactly one status item, the chevron. The reveal fallback surrenders the
 chevron's own width for eight seconds, which frees one slot; items deeper in the hidden run
 are reachable through the menu and click-through as before.
+
+## v0.5.3, the reveal fallback removed (2026-08-02)
+
+A field bug traced every "macOS squeeze" symptom back to our own code. Clicking a hidden item
+whose menu opened slowly made `Activator` misjudge the press as failed after its 640ms poll, so
+`temporarilyReveal` fired on top of a working click-through: chevron length to zero, the whole
+run sliding 22pt right into the freed space, the target item peeking out from under the notch,
+a dead 16pt padding stub where the chevron was, and an exactly 8 second recovery, our timer.
+Instrumented builds showed clicks arriving at the stub and being swallowed by the zero length
+button, and showed the earlier "fixed macOS timer" theory to be this app looking at itself.
+
+The reveal is gone. Shrinking the chevron can free at most 22pt, which reveals nothing, so the
+fallback is now simply activating the owning app. The success poll is 1.6 seconds with early
+exit, which catches slow menus and makes the fallback rare. The left anchored glyph from
+0.5.2, a mitigation for a squeeze that no longer exists, is reverted.

@@ -57,7 +57,7 @@ struct SettingsView: View {
                     }
                     Text(trusted
                          ? "Clicking a hidden item opens its own menu directly."
-                         : "Without Accessibility, hidden items are revealed in the bar for you to click by hand.")
+                         : "Without Accessibility, clicking a hidden item brings its app to the front instead.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)

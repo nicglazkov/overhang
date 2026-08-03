@@ -104,8 +104,8 @@ so a smaller number sorts further right. System items cannot be displaced by any
 </details>
 
 Accessibility is optional and enables exactly one thing: clicking an entry presses the real
-status item so its own menu opens. Declined, Overhang tucks its own icon away for eight seconds
-so the item nearest the edge can return for you to click. The relevant code is one short function,
+status item so its own menu opens. Declined, clicking an entry brings that item's app to the
+front instead. The relevant code is one short function,
 [`Sources/Activator.swift`](Sources/Activator.swift).
 
 <br>
@@ -134,8 +134,8 @@ Design notes, including every measured finding this app is built on, live in
 Stated plainly, because they are real.
 
 - **Click-through coverage is partial.** Items backed by a standard menu open directly. Items
-  that consume the mouse event themselves fall back to reveal and click. Architectural, not
-  positional.
+  that consume the mouse event themselves fall back to bringing their app forward.
+  Architectural, not positional.
 - **The chevron costs a slot** on a completely full bar. The evicted icon appears in the menu,
   still reachable.
 

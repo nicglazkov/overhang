@@ -53,7 +53,7 @@
     <a class="fill" href="https://github.com/nicglazkov/overhang/releases/latest">Download</a>
     <a class="ghost" href="https://github.com/nicglazkov/overhang">View source</a>
   </div>
-  <p class="fineprint">Version 0.5.2. Free and open source. No permissions required.</p>
+  <p class="fineprint">Version 0.5.3. Free and open source. No permissions required.</p>
 </header>
 
 <main class="shell">
@@ -116,7 +116,7 @@
             <span>A disk image for macOS 14 and later. Universal, Apple silicon and Intel.
             Under 2 MB.</span>
             <div class="instep-actions">
-              <a class="instep-btn" href="https://github.com/nicglazkov/overhang/releases/latest">Download 0.5.2</a>
+              <a class="instep-btn" href="https://github.com/nicglazkov/overhang/releases/latest">Download 0.5.3</a>
               <a class="instep-link" href="https://github.com/nicglazkov/overhang/releases">All releases</a>
             </div>
           </li>
@@ -168,8 +168,7 @@ make install</pre>
       <summary>Does Overhang need any permissions?</summary>
       <p>No. Finding and listing items works with nothing granted. Accessibility is
       optional and does one thing: it lets a hidden item open its own menu when you click it.
-      Decline it and Overhang tucks its own icon away for eight seconds to make what room it
-      can, so the item nearest the edge can return for you to click.</p>
+      Decline it and clicking an entry brings that item's app to the front instead.</p>
     </details>
     <details>
       <summary>Why does it never ask for Screen Recording?</summary>
@@ -187,7 +186,7 @@ make install</pre>
       <summary>Some hidden items do not respond when I click them.</summary>
       <p>Items built on a standard menu open directly. A few apps handle the mouse event
       themselves and ignore anything else, so Overhang cannot press them. Those fall back to
-      revealing the item in the bar so you can click it by hand. This depends on how the app was
+      bringing the app itself to the front. This depends on how the app was
       built, not on where its icon sits.</p>
     </details>
     <details>
@@ -225,7 +224,7 @@ make install</pre>
 </main>
 
 <footer><div class="shell">
-  <span>Overhang 0.5.2. MIT licensed.</span>
+  <span>Overhang 0.5.3. MIT licensed.</span>
   <span class="grow"></span>
   <a href="privacy.html">Privacy</a>
   <a href="security.html">Security</a>
