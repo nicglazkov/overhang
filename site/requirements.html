@@ -1,109 +1,152 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Requirements, Overhang</title>
-<meta name="description" content="System requirements and compatibility for Overhang, a small macOS menu bar utility.">
-<meta name="theme-color" content="#f4f5fa" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#08080c" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="img/icon.png">
-<script>
-  (function(){try{var s=localStorage.getItem("overhang-theme");
-  if(s==="light"||s==="dark")document.documentElement.setAttribute("data-theme",s);}catch(e){}})();
-</script>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Requirements, Overhang</title>
+  <meta name="description"
+    content="System requirements and compatibility for Overhang, a small macOS menu bar utility.">
+  <meta name="theme-color" content="#f4f5fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#08080c" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="img/icon.png">
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("overhang-theme");
+        if (s === "light" || s === "dark") document.documentElement.setAttribute("data-theme", s);
+      } catch (e) { }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="bar"><div class="shell">
-  <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overhang</b></a>
-  <span class="grow"></span>
-  <nav>
-    <a href="index.html#features">Features</a>
-    <a href="index.html#install">Install</a>
-    <a href="index.html#faq">FAQ</a>
-    <a href="https://github.com/nicglazkov/overhang">Source</a>
-  </nav>
-  <div class="themer" role="group" aria-label="Colour theme">
-    <button type="button" id="lightBtn" aria-pressed="false" aria-label="Light theme">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/>
-      </svg></button>
-    <button type="button" id="darkBtn" aria-pressed="false" aria-label="Dark theme">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"/>
-      </svg></button>
+  <div class="bar">
+    <div class="shell">
+      <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overhang</b></a>
+      <span class="grow"></span>
+      <nav>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#install">Install</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="https://github.com/nicglazkov/overhang">Source</a>
+      </nav>
+      <div class="themer" role="group" aria-label="Colour theme">
+        <button type="button" id="lightBtn" aria-pressed="false" aria-label="Light theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" />
+            <path
+              d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6" />
+          </svg></button>
+        <button type="button" id="darkBtn" aria-pressed="false" aria-label="Dark theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z" />
+          </svg></button>
+      </div>
+    </div>
   </div>
-</div></div>
 
-<header class="shell doc">
-  <h1>Requirements</h1>
-  <p class="stamp">For Overhang 0.5.3. Last updated 2 August 2026.</p>
-</header>
+  <header class="shell doc">
+    <h1>Requirements</h1>
+    <p class="stamp">For Overhang 0.5.3. Last updated 2 August 2026.</p>
+  </header>
 
-<main class="shell">
+  <main class="shell">
 
-  <section class="panel">
-    <h2>System requirements</h2>
-    <table>
-      <tr><th>Operating system</th><td>macOS 14 Sonoma or later</td></tr>
-      <tr><th>Hardware</th><td>Apple silicon or Intel, universal binary</td></tr>
-      <tr><th>Disk space</th><td>Under 2 MB</td></tr>
-      <tr><th>Memory</th><td>Negligible, the app has no window open in normal use</td></tr>
-      <tr><th>Network</th><td>Not required. The app makes no network requests</td></tr>
-      <tr><th>Permissions</th><td>None to install or run. Accessibility is asked for only if you enable click-through</td></tr>
-      <tr><th>Price</th><td>Free</td></tr>
-      <tr><th>Licence</th><td>MIT</td></tr>
-    </table>
-  </section>
+    <section class="panel">
+      <h2>System requirements</h2>
+      <table>
+        <tr>
+          <th>Operating system</th>
+          <td>macOS 14 Sonoma or later</td>
+        </tr>
+        <tr>
+          <th>Hardware</th>
+          <td>Apple silicon or Intel, universal binary</td>
+        </tr>
+        <tr>
+          <th>Disk space</th>
+          <td>Under 2 MB</td>
+        </tr>
+        <tr>
+          <th>Network</th>
+          <td>Not required</td>
+        </tr>
+        <tr>
+          <th>Permissions</th>
+          <td>None to install or run. Accessibility is asked for only if you enable click-through</td>
+        </tr>
+      </table>
+    </section>
 
-  <section class="panel">
-    <h2>Display compatibility</h2>
-    <h3>Notched Macs</h3>
-    <p>This is where Overhang helps most. The notch removes a section of usable menu bar, so the
-    bar fills up sooner and icons start disappearing earlier.</p>
-    <h3>Macs without a notch</h3>
-    <p>Fully supported. A full menu bar drops icons on any Mac, the notch simply makes it happen
-    with fewer icons.</p>
-    <h3>External displays</h3>
-    <p>Supported. Overhang reads the usable region from the active display rather than assuming
-    a fixed size, and recalculates when the display arrangement changes.</p>
-  </section>
+    <section class="panel">
+      <h2>Display compatibility</h2>
+      <h3>Notched Macs</h3>
+      <p>Fully supported, this is where Overhang helps most. The notch removes a section of usable menu bar, so the
+        bar fills up sooner and icons start disappearing earlier.</p>
+      <h3>Macs without a notch</h3>
+      <p>Fully supported. A full menu bar drops icons on any Mac, the notch simply makes it happen
+        with fewer icons.</p>
+      <h3>External displays</h3>
+      <p>Supported. Overhang reads the usable region from the active display rather than assuming
+        a fixed size, and recalculates when the display arrangement changes.</p>
+    </section>
 
-  <section class="panel">
-    <h2>Building from source</h2>
-    <table>
-      <tr><th>Xcode</th><td>15 or later</td></tr>
-      <tr><th>Swift</th><td>5.9 or later, included with Xcode</td></tr>
-      <tr><th>XcodeGen</th><td>Required. Install with brew install xcodegen</td></tr>
-      <tr><th>Dependencies</th><td>None. Apple system frameworks only</td></tr>
-      <tr><th>Signing</th><td>Ad hoc by default, so the project builds for anyone</td></tr>
-    </table>
-  </section>
+    <section class="panel">
+      <h2>Building from source</h2>
+      <table>
+        <tr>
+          <th>Xcode</th>
+          <td>15 or later</td>
+        </tr>
+        <tr>
+          <th>Swift</th>
+          <td>5.9 or later, included with Xcode</td>
+        </tr>
+        <tr>
+          <th>XcodeGen</th>
+          <td>Required. Install with brew install xcodegen</td>
+        </tr>
+        <tr>
+          <th>Dependencies</th>
+          <td>None. Apple system frameworks only</td>
+        </tr>
+        <tr>
+          <th>Signing</th>
+          <td>Ad hoc by default</td>
+        </tr>
+      </table>
+    </section>
 
-  <section class="panel">
-    <h2>Known limitations</h2>
-    <h3>Click through does not reach every item</h3>
-    <p>Items built on a standard menu open directly. Some applications handle the mouse event
-    themselves and ignore anything else, so clicking those brings the owning application to the
-    front instead. This depends on how each application was written.</p>
-    <h3>Adding the control costs a slot</h3>
-    <p>On a completely full bar, Overhang's own icon displaces one existing icon. That icon then
-    appears in Overhang's menu, so it stays reachable.</p>
-  </section>
+    <section class="panel">
+      <h2>Known limitations</h2>
+      <h3>Click through does not reach every item</h3>
+      <p>Items built on a standard menu open directly. Some applications handle the mouse event
+        themselves and ignore anything else, so clicking those brings the owning application to the
+        front instead. This depends on how each application was written.</p>
+      <h3>Adding the control costs a slot</h3>
+      <p>On a completely full bar, Overhang's own icon displaces one existing icon. That icon then
+        appears in Overhang's menu, so it stays reachable.</p>
+    </section>
 
-</main>
+  </main>
 
-<footer><div class="shell">
-  <span>Overhang 0.5.3. MIT licensed.</span>
-  <span class="grow"></span>
-  <a href="privacy.html">Privacy</a>
-  <a href="security.html">Security</a>
-  <a href="requirements.html">Requirements</a>
-  <a href="https://github.com/nicglazkov/overhang">Source</a>
-</div></footer>
+  <footer>
+    <div class="shell">
+      <span>Overhang 0.5.3. MIT licensed.</span>
+      <span class="grow"></span>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="requirements.html">Requirements</a>
+      <a href="https://github.com/nicglazkov/overhang">Source</a>
+    </div>
+  </footer>
 
-<script src="theme.js"></script>
+  <script src="theme.js"></script>
 </body>
+
 </html>

@@ -1,137 +1,139 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy, Overhang</title>
-<meta name="description" content="Overhang collects nothing. No analytics, no telemetry, no network requests, no account.">
-<meta name="theme-color" content="#f4f5fa" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#08080c" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="img/icon.png">
-<script>
-  (function(){try{var s=localStorage.getItem("overhang-theme");
-  if(s==="light"||s==="dark")document.documentElement.setAttribute("data-theme",s);}catch(e){}})();
-</script>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy, Overhang</title>
+  <meta name="description"
+    content="Overhang collects nothing. No analytics, no telemetry, no network requests, no account.">
+  <meta name="theme-color" content="#f4f5fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#08080c" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="img/icon.png">
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("overhang-theme");
+        if (s === "light" || s === "dark") document.documentElement.setAttribute("data-theme", s);
+      } catch (e) { }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="bar"><div class="shell">
-  <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overhang</b></a>
-  <span class="grow"></span>
-  <nav>
-    <a href="index.html#features">Features</a>
-    <a href="index.html#install">Install</a>
-    <a href="index.html#faq">FAQ</a>
-    <a href="https://github.com/nicglazkov/overhang">Source</a>
-  </nav>
-  <div class="themer" role="group" aria-label="Colour theme">
-    <button type="button" id="lightBtn" aria-pressed="false" aria-label="Light theme">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/>
-      </svg></button>
-    <button type="button" id="darkBtn" aria-pressed="false" aria-label="Dark theme">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"/>
-      </svg></button>
+  <div class="bar">
+    <div class="shell">
+      <a class="brand" href="index.html"><img src="img/icon.png" alt=""><b>Overhang</b></a>
+      <span class="grow"></span>
+      <nav>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#install">Install</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="https://github.com/nicglazkov/overhang">Source</a>
+      </nav>
+      <div class="themer" role="group" aria-label="Colour theme">
+        <button type="button" id="lightBtn" aria-pressed="false" aria-label="Light theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" />
+            <path
+              d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6" />
+          </svg></button>
+        <button type="button" id="darkBtn" aria-pressed="false" aria-label="Dark theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z" />
+          </svg></button>
+      </div>
+    </div>
   </div>
-</div></div>
 
-<header class="shell doc">
-  <h1>Privacy Policy</h1>
-  <p class="stamp">Applies to Overhang for macOS, all versions. Last updated 1 August 2026.</p>
-</header>
+  <header class="shell doc">
+    <h1>Privacy Policy</h1>
+    <p class="stamp">Applies to Overhang for macOS, all versions. Last updated 1 August 2026.</p>
+  </header>
 
-<main class="shell">
+  <main class="shell">
 
-  <section class="panel">
-    <h2>The short version</h2>
-    <p>Overhang collects nothing, sends nothing and stores nothing about you. It has no analytics,
-    no account system and no server. This page explains that in more detail.</p>
-  </section>
+    <section class="panel">
+      <h2>The short version</h2>
+      <p>Overhang collects nothing, sends nothing and stores nothing about you. It has no analytics,
+        no account system and no server. This page explains that in more detail.</p>
+    </section>
 
-  <section class="panel">
-    <h2>Information we collect</h2>
-    <h3>Personal information</h3>
-    <p>None. Overhang never asks for your name, email address or any other identifying detail.</p>
-    <h3>Usage data and analytics</h3>
-    <p>None. There is no usage reporting, no crash reporting, no event tracking and no device or
-    installation identifier.</p>
-    <h3>Cookies and similar technologies</h3>
-    <p>The app is not a web application and sets no cookies. This website stores exactly one
-    value in your browser, a light or dark theme preference, so the page does not change
-    appearance between visits. It is local to your browser, contains no identifier, and is
-    never transmitted.</p>
-  </section>
+    <section class="panel">
+      <h2>Information we collect</h2>
+      <h3>Personal information</h3>
+      <p>None. Overhang never asks for your name, email address or any other identifying detail.</p>
+      <h3>Usage data and analytics</h3>
+      <p>None. There is no usage reporting, no crash reporting, no event tracking and no device or
+        installation identifier.</p>
+    </section>
 
-  <section class="panel">
-    <h2>What the app reads on your Mac</h2>
-    <p>To do its job, Overhang reads the position, size and owning application of the icons in
-    your menu bar. This is how it works out which icons macOS has stopped drawing.</p>
-    <p>That information is used in memory, on your Mac, and is discarded when the app quits. It
-    is never written to a log, never sent anywhere, and never shared with anyone.</p>
-    <h3>What is saved between launches</h3>
-    <p>One preference: whether launch at login is enabled. It is stored in the standard macOS
-    preferences file for the app and never leaves your Mac.</p>
-  </section>
+    <section class="panel">
+      <h2>What the app reads on your Mac</h2>
+      <p>To do its job, Overhang reads the position, size and owning application of the icons in
+        your menu bar. This is how it works out which icons macOS has stopped drawing.</p>
+      <p>That information is used in memory, on your Mac, and is discarded when the app quits. It
+        is never written to a log, never sent anywhere, and never shared with anyone.</p> <br>
+      <h3>What is saved between launches</h3>
+      <p>One preference, whether launch at login is enabled. It is stored in the standard macOS
+        preferences file for the app and never leaves your Mac.</p>
+    </section>
 
-  <section class="panel">
-    <h2>Permissions</h2>
-    <h3>Accessibility, optional</h3>
-    <p>If you turn on click through, Overhang uses the Accessibility API for a single purpose:
-    pressing a status item that you selected from its menu. It does not read screen contents,
-    does not read keystrokes, and does not inspect other applications beyond the menu bar item
-    you asked it to open.</p>
-    <p>You can decline this permission and keep using the app. Clicking a hidden item then
-    brings its app to the front instead.</p>
-    <h3>Screen Recording, never requested</h3>
-    <p>Overhang does not request Screen Recording under any circumstances. Some menu bar
-    utilities need it because they redraw other applications' icons, which requires capturing
-    the screen. Overhang reads each application's own icon from its bundle instead.</p>
-  </section>
+    <section class="panel">
+      <h2>Permissions</h2>
+      <h3>Accessibility, optional</h3>
+      <p>If you enable click through, Overhang uses the Accessibility API only to press a status item that you selected
+        from its menu. It does not read screen contents,
+        does not read keystrokes, and does not inspect other applications beyond the menu bar item
+        you asked it to open.</p>
+      <p>You can decline this permission and keep using the app. Clicking a hidden item then
+        brings its app to the front instead.</p>
+    </section>
 
-  <section class="panel">
-    <h2>Network access</h2>
-    <p>Overhang makes no network requests. It does not check for updates, does not phone home,
-    and contains no third party SDKs, advertising libraries or analytics frameworks.</p>
-    <p>You can verify this. The full source is published, and macOS itself will confirm the app
-    holds no outgoing connections.</p>
-  </section>
+    <section class="panel">
+      <h2>Third parties</h2>
+      <p>No data is collected, shared, sold or disclosed to anyone.</p>
+      <p>This website is hosted on GitHub Pages. GitHub may keep standard server logs for requests
+        to it, which is outside our control and covered by
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub's privacy
+          statement</a>.
+        Downloading a release from GitHub is likewise subject to their policy.
+      </p>
+    </section>
 
-  <section class="panel">
-    <h2>Third parties</h2>
-    <p>There are none. No data is shared, sold or disclosed to anyone, because none is collected.</p>
-    <p>This website is hosted on GitHub Pages. GitHub may keep standard server logs for requests
-    to it, which is outside our control and covered by
-    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub's privacy statement</a>.
-    Downloading a release from GitHub is likewise subject to their policy.</p>
-  </section>
+    <section class="panel">
+      <h2>Children</h2>
+      <p>Overhang is a utility with no accounts, no content and no data collection, so it is
+        suitable for all ages and collects nothing from anyone regardless of age.</p>
+    </section>
 
-  <section class="panel">
-    <h2>Children</h2>
-    <p>Overhang is a utility with no accounts, no content and no data collection, so it is
-    suitable for all ages and collects nothing from anyone regardless of age.</p>
-  </section>
+    <section class="panel">
+      <h2>Changes and contact</h2>
+      <p>If this policy ever changes, the updated date at the top will change with it and the
+        revision will be visible in the repository history.</p>
+      <p>Questions about privacy can be raised as an
+        <a href="https://github.com/nicglazkov/overhang/issues">issue on GitHub</a>.
+      </p>
+    </section>
 
-  <section class="panel">
-    <h2>Changes and contact</h2>
-    <p>If this policy ever changes, the updated date at the top will change with it and the
-    revision will be visible in the repository history.</p>
-    <p>Questions about privacy can be raised as an
-    <a href="https://github.com/nicglazkov/overhang/issues">issue on GitHub</a>.</p>
-  </section>
+  </main>
 
-</main>
+  <footer>
+    <div class="shell">
+      <span>Overhang 0.5.3. MIT licensed.</span>
+      <span class="grow"></span>
+      <a href="privacy.html">Privacy</a>
+      <a href="security.html">Security</a>
+      <a href="requirements.html">Requirements</a>
+      <a href="https://github.com/nicglazkov/overhang">Source</a>
+    </div>
+  </footer>
 
-<footer><div class="shell">
-  <span>Overhang 0.5.3. MIT licensed.</span>
-  <span class="grow"></span>
-  <a href="privacy.html">Privacy</a>
-  <a href="security.html">Security</a>
-  <a href="requirements.html">Requirements</a>
-  <a href="https://github.com/nicglazkov/overhang">Source</a>
-</div></footer>
-
-<script src="theme.js"></script>
+  <script src="theme.js"></script>
 </body>
+
 </html>
