@@ -5,3 +5,4 @@ build/
 *.iconset/
 .DS_Store
 site/_compare/
+local.mk
