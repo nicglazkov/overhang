@@ -6,6 +6,10 @@ APP     := $(DERIVED)/Build/Products/$(CONFIG)/Overhang.app
 
 # Ad-hoc signing by default. Override to keep Accessibility grants across rebuilds:
 #   make install SIGN_ID="Apple Development: Your Name (XXXXXXXXXX)" TEAM_ID=YYYYYYYYYY
+# Or put SIGN_ID and TEAM_ID in local.mk (gitignored) so every build picks
+# them up. A certificate SHA-1 works as SIGN_ID and is the only safe choice
+# when the keychain holds two identities with the same name.
+-include local.mk
 SIGN_ID ?= -
 TEAM_ID ?=
 
