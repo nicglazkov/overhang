@@ -15,7 +15,7 @@ jobs:
     name: Build and test
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Install XcodeGen
         run: brew install xcodegen
@@ -38,7 +38,7 @@ jobs:
       - name: Package
         run: ditto -c -k --keepParent build/Build/Products/Release/Overhang.app Overhang.zip
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: Overhang.app
           path: Overhang.zip
